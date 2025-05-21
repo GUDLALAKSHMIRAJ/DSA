@@ -1,0 +1,10 @@
+Linear search:
+Whenever array length is smaller or shorter linear search
+  code,program and snippet
+    [5,8,11,14,16]
+    target=14;
+for(--n-1){
+  if(arr[i]==target),  O(n)
+    return;
+}
+return-1;
