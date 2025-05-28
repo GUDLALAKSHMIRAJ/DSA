@@ -30,3 +30,40 @@ public class Solution {
 OUTPUT:
 
 [3,2,0,-4]
+
+
+static Node oddAndEven(Node head) {
+    Node temp = head;
+    Node oddStart = null, oddEnd = null;
+    Node evenStart = null, evenEnd = null;
+
+    while (temp != null) {
+        if (temp.data % 2 == 0) {
+            if (evenStart == null) {
+                evenStart = temp;
+                evenEnd = evenStart;
+            } else {
+                evenEnd.next = temp;
+                evenEnd = temp;
+            }
+        } else {
+            if (oddStart == null) {
+                oddStart = temp;
+                oddEnd = oddStart;
+            } else {
+                oddEnd.next = temp;
+                oddEnd = temp;
+            }
+        }
+        temp = temp.next; 
+    }
+
+    if (oddStart == null) return evenStart;
+    if (evenStart == null) return oddStart;
+
+
+    oddEnd.next = evenStart;
+    evenEnd.next = null; 
+
+    return oddStart;
+}
