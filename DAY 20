@@ -1,0 +1,145 @@
+To create a linked list:
+public class Node{
+  int data;
+  Node next;
+  Node(int data1){
+    this.data=data1;
+    this.next=null;
+  }
+Node(int data1,Node next1){
+  this.data = data1;
+  this.next = next1;
+}
+static Node convert(int[] arr){
+  Node head = new Node(arr[0]);
+  Node current = head;
+  for(int i=1;i<5;i++){
+    Node temp = new Node(arr[i]);
+    current.next=temp;
+    current=temp;
+  }
+  return head;
+}
+static void print(Node head){
+  Node temp = head;
+  while(temp!=null){
+    System.out.print(temp.data+"->");
+    temp=temp.next;
+  }
+  System.out.println("null");
+}
+public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        Node head = convert(arr);
+        print(head);
+    }
+}
+Output:
+1->2->3->4->5->null
+
+To create reversed Linked List;
+
+public class Node{
+  int data;
+  Node next;
+  Node(int data1){
+    this.data=data1;
+    this.next=null;
+  }
+Node(int data1,Node next1){
+  this.data = data1;
+  this.next = next1;
+}
+static Node convert(int[] arr){
+  Node head = new Node(arr[0]);
+  Node current = head;
+  for(int i=1;i<5;i++){
+    Node temp = new Node(arr[i]);
+    current.next=temp;
+    current=temp;
+  }
+  return head;
+}
+static void print(Node head){
+  Node temp = head;
+  while(temp!=null){
+    System.out.print(temp.data+"->");
+    temp=temp.next;
+  }
+  System.out.println("null");
+}
+static Node reverse(Node head){
+  Node prev = null;
+  Node current = head;
+  while(current!=null){
+    Node temp=current.next;
+    current.next=prev;
+    prev=current;
+    current=temp;
+  }
+  return prev;
+}
+public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        Node head = convert(arr);
+        print(head);
+        
+        head=reverse(head);
+        print(head);
+    }
+}
+Output:
+
+1->2->3->4->5->null
+5->4->3->2->1->null
+
+  To create doubly Linked List:
+
+public class Node{
+  int data;
+  Node next;
+  Node prev;
+  Node(int data1){
+    this.data=data1;
+    this.next=null;
+    this.prev=null;
+  }
+  Node(int data1,Node prev1){
+  this.data = data1;
+  this.next = null;
+  this.prev = prev1;
+}
+Node(int data1,Node next1,Node prev1){
+  this.data = data1;
+  this.next = next1;
+  this.prev = prev1;
+}
+static Node convert(int[] arr){
+  Node head = new Node(arr[0]);
+  Node current = head;
+  for(int i=1;i<5;i++){
+    Node temp = new Node(arr[i]);
+    current.next=temp;
+    temp.prev=current;
+    current=temp;
+  }
+  return head;
+}
+static void print(Node head){
+  System.out.print("null<-");
+  Node temp = head;
+  while(temp!=null){
+    System.out.print(temp.data+"<->");
+    temp=temp.next;
+  }
+  System.out.println("null");
+}
+public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        Node head = convert(arr);
+        print(head);
+    }
+}
+Output:
+
+null<-1<->2<->3<->4<->5<->null
